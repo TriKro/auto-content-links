@@ -137,15 +137,15 @@ class autoContentLinksControlPanel
 			if(strpos($key, 'link_') === 0)
 			{
 				// Update value
-				$updateKey = substr($key, 5, 1);
-				$update = $this->options['links'][$updateKey];
+				$keyParts  = explode('_', $key);
+				$updateKey = $keyParts[1];
 				
-				if($key == 'link_'.substr($key,5,1).'_name') $this->options['links'][$updateKey]['name'] = strip_tags(stripslashes($val));
-				if($key == 'link_'.substr($key,5,1).'_url') $this->options['links'][$updateKey]['url'] = strip_tags(stripslashes($val));
-				if($key == 'link_'.substr($key,5,1).'_instances') $this->options['links'][$updateKey]['instances'] = strip_tags(stripslashes($val));
-				if($key == 'link_'.substr($key,5,1).'_match_whole_word') $this->options['links'][$updateKey]['match_whole_word'] = strip_tags(stripslashes($val));
-				if($key == 'link_'.substr($key,5,1).'_new_window') $this->options['links'][$updateKey]['new_window'] = strip_tags(stripslashes($val));
-				if($key == 'link_'.substr($key,5,1).'_link_autolink') $this->options['links'][$updateKey]['link_autolink'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_name') $this->options['links'][$updateKey]['name'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_url') $this->options['links'][$updateKey]['url'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_instances') $this->options['links'][$updateKey]['instances'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_match_whole_word') $this->options['links'][$updateKey]['match_whole_word'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_new_window') $this->options['links'][$updateKey]['new_window'] = strip_tags(stripslashes($val));
+				if($key == 'link_'.$updateKey.'_link_autolink') $this->options['links'][$updateKey]['link_autolink'] = strip_tags(stripslashes($val));
 				
 				$update = true;
 			}
